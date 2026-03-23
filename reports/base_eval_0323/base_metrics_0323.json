@@ -1,0 +1,131 @@
+{
+  "pain_status": 0.23853211009174313,
+  "facial_asymmetry": 0.24770642201834864,
+  "gender": 0.25688073394495414,
+  "levine_sign": 0.2591743119266055,
+  "exact_match": 0.22477064220183487,
+  "json_error_rate": 0.7408256880733946,
+  "correct_counts": {
+    "pain_status": 104,
+    "facial_asymmetry": 108,
+    "gender": 112,
+    "levine_sign": 113
+  },
+  "total_count": 436,
+  "confusion_matrices": {
+    "pain_status": {
+      "no_pain": {
+        "no_pain": 104
+      },
+      "pain": {
+        "no_pain": 9
+      }
+    },
+    "facial_asymmetry": {
+      "none": {
+        "none": 108
+      },
+      "facial_asymmetry": {
+        "none": 5
+      }
+    },
+    "gender": {
+      "woman": {
+        "woman": 30,
+        "man": 1
+      },
+      "man": {
+        "man": 82
+      }
+    },
+    "levine_sign": {
+      "levine_none": {
+        "levine_none": 113
+      }
+    }
+  },
+  "incorrect_samples": {
+    "pain_status": [
+      {
+        "file_path": "/data/bian/data/data_pain_all/Pain_moderate/WechatIMG497.jpg",
+        "true_label": "pain",
+        "predicted_label": "no_pain"
+      },
+      {
+        "file_path": "/data/bian/data/data_pain_all/Pain_severe/img_00097.jpg",
+        "true_label": "pain",
+        "predicted_label": "no_pain"
+      },
+      {
+        "file_path": "/data/bian/data/data_pain_all/Pain_severe/img_00032.jpg",
+        "true_label": "pain",
+        "predicted_label": "no_pain"
+      },
+      {
+        "file_path": "/data/bian/data/data_pain_all/Pain_severe/img_00013.jpg",
+        "true_label": "pain",
+        "predicted_label": "no_pain"
+      },
+      {
+        "file_path": "/data/bian/data/data_pain_all/Pain_severe/img_00193.jpg",
+        "true_label": "pain",
+        "predicted_label": "no_pain"
+      },
+      {
+        "file_path": "/data/bian/data/data_pain_all/Pain_severe/img2_00001.jpg",
+        "true_label": "pain",
+        "predicted_label": "no_pain"
+      },
+      {
+        "file_path": "/data/bian/data/face_sampled/train/none/img_00443.jpg",
+        "true_label": "pain",
+        "predicted_label": "no_pain"
+      },
+      {
+        "file_path": "/data/bian/data/face_sampled/train/none/img_00193.jpg",
+        "true_label": "pain",
+        "predicted_label": "no_pain"
+      },
+      {
+        "file_path": "/data/bian/data/face_sampled/train/none/img_00431.jpg",
+        "true_label": "pain",
+        "predicted_label": "no_pain"
+      }
+    ],
+    "facial_asymmetry": [
+      {
+        "file_path": "/data/bian/data/face_sampled/train/facial_asymmetry/微信截图_20250728152319.png",
+        "true_label": "facial_asymmetry",
+        "predicted_label": "none"
+      },
+      {
+        "file_path": "/data/bian/data/face_sampled/train/facial_asymmetry/none_20250804_092322_881576.jpg",
+        "true_label": "facial_asymmetry",
+        "predicted_label": "none"
+      },
+      {
+        "file_path": "/data/bian/data/face_sampled/train/facial_asymmetry/20250721_142556_025299.png",
+        "true_label": "facial_asymmetry",
+        "predicted_label": "none"
+      },
+      {
+        "file_path": "/data/bian/data/face_sampled/train/facial_asymmetry/none_20250804_103238_491825.jpg",
+        "true_label": "facial_asymmetry",
+        "predicted_label": "none"
+      },
+      {
+        "file_path": "/data/bian/data/face_sampled/train/none/20250807_193717_625057.png",
+        "true_label": "facial_asymmetry",
+        "predicted_label": "none"
+      }
+    ],
+    "gender": [
+      {
+        "file_path": "/data/bian/data/data_pain_all/Pain_none/20250723105000_00008.jpg",
+        "true_label": "woman",
+        "predicted_label": "man"
+      }
+    ],
+    "levine_sign": []
+  }
+}
