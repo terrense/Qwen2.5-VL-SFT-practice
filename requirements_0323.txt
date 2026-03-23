@@ -1,0 +1,21 @@
+# 0323 实验 Python 依赖
+# 安装:
+# 1. 先安装已验证可用的 torch 栈（CUDA 12.8）
+#    pip install torch==2.9.0 torchvision==0.24.0 torchaudio==2.9.0 --index-url https://download.pytorch.org/whl/cu128
+# 2. 再安装本文件
+#    pip install -r requirements_0323.txt
+#
+# 下面这些版本是 2026-03-22 在当前机器上验证过可通过 Qwen2.5-VL 首样本 generate() 的组合。
+
+transformers==4.57.5
+peft==0.18.1
+accelerate==1.13.0
+modelscope
+# qwen-vl-utils: 提供 process_vision_info，用于 Qwen-VL 图文输入处理
+# pip 包名是 qwen-vl-utils，import 名是 qwen_vl_utils
+qwen-vl-utils
+datasets
+sentencepiece
+scikit-learn
+tqdm
+pillow
