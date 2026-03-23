@@ -43,6 +43,49 @@ LORA_EVAL_ROOT_0323 = EXPERIMENT_ROOT_0323 / "reports" / "lora_eval_0323"
 INFERENCE_ROOT_0323 = EXPERIMENT_ROOT_0323 / "reports" / "inference_0323"
 # 推理输出目录（当前脚本未写入，预留扩展）
 
+# ========== 后续工程链路目录 ==========
+POST_SFT_ROOT_0323 = EXPERIMENT_ROOT_0323 / "post_sft"
+# SFT 之后的模型处理链路根目录：merge、prune、pruned eval 等
+
+MERGED_MODEL_ROOT_0323 = POST_SFT_ROOT_0323 / "merged" / "qwen25vl32b_full_1epoch_merged_0323"
+# merge_lora_0323.py 的默认输出目录：基座 + LoRA 合并后的完整模型
+
+PRUNED_MODEL_ROOT_0323 = POST_SFT_ROOT_0323 / "pruned" / "qwen25vl32b_full_1epoch_merged_pruned_0323"
+# 2:4 结构化剪枝后的模型目录
+
+PRUNED_EVAL_ROOT_0323 = EXPERIMENT_ROOT_0323 / "reports" / "pruned_eval_0323"
+# 剪枝后模型的评测结果目录
+
+QUANTIZATION_ROOT_0323 = EXPERIMENT_ROOT_0323 / "quantization"
+# 量化链路根目录：导出的 AWQ / FP8 / PTQ 产物统一放这里
+
+QUANT_EXPORT_ROOT_0323 = QUANTIZATION_ROOT_0323 / "exports_0323"
+# quantize_0323.py 的默认导出目录
+
+AWQ_EXPORT_PATH_0323 = QUANT_EXPORT_ROOT_0323 / "qwen25vl32b_merged_int4_awq_0323.pt"
+# 默认 int4_awq 导出文件
+
+FP8_EXPORT_PATH_0323 = QUANT_EXPORT_ROOT_0323 / "qwen25vl32b_merged_fp8_0323.pt"
+# 默认 fp8 导出文件
+
+TRT_ROOT_0323 = EXPERIMENT_ROOT_0323 / "trt"
+# TensorRT / TensorRT-LLM 构建目录
+
+TRT_ONNX_ROOT_0323 = TRT_ROOT_0323 / "onnx_0323"
+# Step1 导出的 ONNX 与 build_plan.json 相关中间产物目录
+
+TRT_ENGINE_ROOT_0323 = TRT_ROOT_0323 / "engines_0323"
+# Step2 构建出的 TensorRT engine 目录
+
+DEPLOY_ROOT_0323 = EXPERIMENT_ROOT_0323 / "deploy"
+# API 服务部署相关目录
+
+DEPLOY_SERVICE_ROOT_0323 = DEPLOY_ROOT_0323 / "service_0323"
+# FastAPI / OpenAI-compatible 服务默认工作目录
+
+SCRIPTS_ROOT_0323 = EXPERIMENT_ROOT_0323 / "scripts"
+# 新增运行脚本统一放在 scripts/ 下，避免继续堆在根目录
+
 # Conda 环境路径（可选，用于脚本激活）
 CONDA_ENV_PATH_0323 = Path("/data/sx_files/.envs/qwen25vl_sft_0323")
 
@@ -94,6 +137,18 @@ def ensure_output_dirs_0323() -> None:
         BASE_EVAL_ROOT_0323,
         LORA_EVAL_ROOT_0323,
         INFERENCE_ROOT_0323,
+        POST_SFT_ROOT_0323,
+        MERGED_MODEL_ROOT_0323.parent,
+        PRUNED_MODEL_ROOT_0323.parent,
+        PRUNED_EVAL_ROOT_0323,
+        QUANTIZATION_ROOT_0323,
+        QUANT_EXPORT_ROOT_0323,
+        TRT_ROOT_0323,
+        TRT_ONNX_ROOT_0323,
+        TRT_ENGINE_ROOT_0323,
+        DEPLOY_ROOT_0323,
+        DEPLOY_SERVICE_ROOT_0323,
+        SCRIPTS_ROOT_0323,
     ]:
         path.mkdir(parents=True, exist_ok=True)
 
@@ -129,3 +184,13 @@ def lora_output_dir_0323() -> str:
     Trainer 的 output_dir 需 str 类型。
     """
     return str(RUN_ROOT_0323)
+
+
+def merged_model_dir_0323() -> str:
+    """返回 merge 后完整模型的字符串路径。"""
+    return str(MERGED_MODEL_ROOT_0323)
+
+
+def pruned_model_dir_0323() -> str:
+    """返回结构化剪枝后模型的字符串路径。"""
+    return str(PRUNED_MODEL_ROOT_0323)
