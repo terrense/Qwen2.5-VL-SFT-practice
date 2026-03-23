@@ -30,3 +30,5 @@ wandb/
 tensorboard/
 logs/
 *.pyc
+*.pyc
+*.pyc
